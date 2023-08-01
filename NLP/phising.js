@@ -457,7 +457,7 @@ const ise_training = async(manager) => {
   // CAMBIAR NOMBRE DE RESPUESTAS
   manager.addAnswer('es', `intencion.${solucion}_concepto`, generateISEResponse());
   //manager.addAnswer('es', `intencion.licencias_${solucion}`, respuesta_duo('licencias'));
-  manager.addAnswer('es', `intencion.casosdeuso_${solucion}`, respuesta_ise('casos de uso'));
+  manager.addAnswer('es', `intencion.usecases_${solucion}`, respuesta_ise('casos de uso'));
   
   //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
   //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
