@@ -7,10 +7,14 @@ var bodyParser = require("body-parser");
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static("images"));
+var {portafolio_opciones, portafolio_llamada} = require('./portafolio')
+var {ataques_opciones, ataques_llamada} = require('./ataques')
+const {initializeAndProcessChatbot} = require('./NLP');
+
 const config = {
-  webhookUrl: process.env.WEBHOOKURL,
-  token: process.env.BOTTOKEN,
-  port: process.env.PORT,
+  webhookUrl: "https://cae4-179-6-14-226.ngrok-free.app",
+  token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  port: 7001
 };
 
 // init framework
@@ -93,6 +97,35 @@ framework.hears(
   "**framework**: (learn more about the Webex Bot Framework)",
   0
 );
+
+/*PORTAFOLIO*/ 
+framework.hears(/^(S|soluciones|portafolio)$/i, async (bot,trigger)=>{
+  console.log("Se solicitó portafolio");
+  portafolio_llamada(bot,trigger)
+},0)
+
+
+/*OPCION DE PORTAFOLIO*/
+framework.hears(/^(S1|S2|S5|umbrella|duo|xdr)$/i, async (bot,trigger)=>{
+  console.log("Se llamo a una solución de portafolio.")
+  portafolio_opciones(bot,trigger); 
+},1);
+
+/* ATAQUES */
+framework.hears(/^(A|ataques|ataque)$/i, async (bot,trigger)=>{
+  console.log("Se solicitó ataques");
+  ataques_llamada(bot,trigger)
+},0)
+
+/*OPCION DE ATAQUES*/
+framework.hears(/^(A1|A2|A3|A4|phising|ransomware)$/i, async (bot,trigger)=>{
+  console.log("Se llamó a un ataque de la lista.")
+  ataques_opciones(bot,trigger); 
+},1);
+
+
+
+
 
 /* On mention with command, using other trigger data, can use lite markdown formatting
 ex User enters @botname 'info' phrase, the bot will provide personal details
@@ -260,18 +293,17 @@ ex User enters @botname help, the bot will write back in markdown
  * The framework.showHelp method will use the help phrases supplied with the previous
  * framework.hears() commands
 */
-framework.hears(
-  /help|what can i (do|say)|what (can|do) you do/i,
+framework.hears(/^(ayuda|help|hola)$/i,
   (bot, trigger) => {
-    console.log(`someone needs help! They asked ${trigger.text}`);
+    console.log(`Alguien pidió ayuda con:  ${trigger.text}`);
     bot
-      .say(`Hello ${trigger.person.displayName}.`)
+      .say(`Hola ${trigger.person.displayName}.`)
       //    .then(() => sendHelp(bot))
       .then(() => bot.say("markdown", framework.showHelp()))
       .catch((e) => console.error(`Problem in help hander: ${e.message}`));
   },
   "**help**: (what you are reading now)",
-  0
+  99
 );
 
 /* On mention with unexpected bot command
@@ -281,16 +313,28 @@ framework.hears(
 */
 framework.hears(
   /.*/,
-  (bot, trigger) => {
+  async (bot, trigger) => {
     // This will fire for any input so only respond if we haven't already
+    console.log(trigger)
     console.log(`catch-all handler fired for user input: ${trigger.text}`);
-    bot
-      .say(`Sorry, I don't know how to respond to "${trigger.text}"`)
-      .then(() => bot.say("markdown", framework.showHelp()))
+    
+    let {respuesta, url } = await initializeAndProcessChatbot(trigger.text)
+    
+    if (respuesta==='None'){
+      bot.say("markdown", framework.showHelp())
+    }
+    else{
+      bot
+      .say("markdown",`${respuesta}`)
+      //.then(() => bot.say("markdown", framework.showHelp()))
       //    .then(() => sendHelp(bot))
+      .then(() => {
+        url !== undefined ? bot.say({ text: '', file: url }) : null;
+      })      
       .catch((e) =>
         console.error(`Problem in the unexepected command hander: ${e.message}`)
       );
+    } 
   },
   99999
 );
