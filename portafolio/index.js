@@ -3,6 +3,7 @@ const {umbrella} = require('./umbrella')
 const {duo} = require('./duo')
 const {insertarDatos} = require('../save_data/sheet')
 const {xdr} = require('./xdr')
+const {almacenarDatosEnServidor} = require('../save_data/db_save')
 
 const soluciones_obj = {'S1':'Umbrella', 'S2': 'DUO', 'S3': 'Secure Endpoint', 'S4':'ISE', 'S5':'XDR'}
 
@@ -30,15 +31,15 @@ const portafolio_opciones = async (bot,trigger) => {
     console.log(actualselectedOption)
     if ( actualselectedOption.toLowerCase() == 's1' || actualselectedOption.toLowerCase() == "umbrella" ) {
       umbrella(bot)
-      insertarDatos('umbrella')
+      almacenarDatosEnServidor('umbrella')
       // Realizar acciones para la opción 1
     } else if (actualselectedOption.toLowerCase() == 's2' || actualselectedOption.toLowerCase() == "duo") {
       duo(bot)
-      insertarDatos('duo')
+      almacenarDatosEnServidor('duo')
       // Realizar acciones para la opción 2
     } else if (actualselectedOption.toLowerCase() == 's5' || actualselectedOption.toLowerCase() == "xdr"){
       xdr(bot)
-      insertarDatos('xdr')
+      almacenarDatosEnServidor('xdr')
     }
 
 }
