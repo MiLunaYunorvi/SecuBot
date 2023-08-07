@@ -1,6 +1,6 @@
 const solucion = 'Secure Endpoint'
 
-const secureendpoint_options = { 
+const my_secureendpoint_options = { 
     '¿Qué es': 'Cisco Secure Endpoint es un agente ligero para dispositivos Windows, Mac, Linux, Android e iOS. Es una plataforma de protección de puntos finales (EPP) combinada con un software de detección y respuesta de puntos finales (EDR), proporcionando una solución completa de protección para los puntos finales.',
     'Beneficios': 
     `
@@ -17,6 +17,20 @@ const secureendpoint_options = {
     `,
     
      }
+
+const secureendpoint_options = {
+        '🌟FUNCIONES:': `
+        Protege los endpoints, ya sea que estén conectados a una red protegida o navegando por Internet, con capacidades continuas e integradas de **detección, respuesta y remediación**.           
+    `,
+        '🤔 ¿Es Cisco Endpoint un antivirus?': `
+        NO, Cisco Secure Endpoint no es únicamente un antivirus. Sin embargo, incluye capacidades antivirus. Es más que solo una solución antivirus, ya que también proporciona capacidades avanzadas de detección y respuesta en endpoints (EDR), lo que te permite detectar y responder incluso ante las amenazas más sofisticadas.
+
+        ` ,
+        '🤓RECURSOS' : `
+        - Secure Endpoint BDM (ppt): https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/Secure+Endpoint/Secure+Endpoint+BDM.pptx
+        - Top 5 tips para escoger Secure Endpoint: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/Secure+Endpoint/Top+5+tips+choosing+Endpoint+Protection.pdf
+    `,
+}     
 
 const secureendpoint = (bot) => {
     let mensaje = ''

@@ -1,4 +1,4 @@
-const Umbrella_options = { 
+const my_Umbrella_options = { 
     '¿Qué es': 'Seguridad en la nube, TODO en UNO.',
     'Funciones': 
     `
@@ -18,6 +18,22 @@ const Umbrella_options = {
     `,
     'Ordering guide': 'https://www.cisco.com/c/en/us/products/collateral/security/umbrella/umbrella-og.html',
      }
+
+const Umbrella_options = {
+    '🌟FUNCIONES:': `
+    **A: Unifica funciones de seguridad en un solo servicio en la nube:**
+        - Protección de DNS: Bloquea amenazas en la capa DNS y evita el acceso a sitios web maliciosos.
+        - Cloud Delivered Firewall: Protege tus redes y aplicaciones en la nube con un firewall seguro entregado desde la nube.
+        - Secure Web Gateway: Filtra el tráfico web, bloquea malware y protege contra contenido no deseado con una puerta de enlace web segura.
+        - CASB (Cloud Access Security Broker): Asegura tus aplicaciones y datos en la nube con políticas de seguridad y protección de acceso. Protección integral contra amenazas
+    **B: Implementación sencilla y ahorro de recursos.**
+    **C: Soporte de expertos en amenazas de Cisco Talos.**
+`,
+    '🤓RECURSOS' : `
+    - Umbrella at a glance: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/UMBRELLA/Umbrella+at+glance.pdf
+    - Umbrella Sales Play: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/UMBRELLA/Umbrella+Sales+Play.pdf
+`,
+}
 
 const umbrella = (bot) => {
     let mensaje = ''

@@ -1,9 +1,11 @@
 var framework = require("webex-node-bot-framework");
-
 const {insertarDatos} = require('../save_data/sheet')
 const {phishing} = require('./phising')
 const {ransomware} = require('./ransomware')
-const ataques_obj = {'A1':'Phishing', 'A2': 'Ramsomware', 'A3': 'Malware', 'A4': 'DDoS'}
+const {databreach} = require('./databreach')
+const {malware} = require('./malware')
+const ataques_obj = {'A1':'Phishing', 'A2': 'Ramsomware', 'A3': 'Malware', 'A4': 'Data breach'}
+const {almacenarDatosEnServidor} = require('../save_data/db_save')
 
 const ataques_llamada = async (bot,trigger) => {
     let mensaje = ''
@@ -26,11 +28,21 @@ const ataques_opciones = async (bot,trigger) => {
     console.log(actualselectedOption)
     if ( actualselectedOption.toLowerCase() == 'a1' || actualselectedOption.toLowerCase() == "phishing" ) {
       phishing(bot)
-      insertarDatos('phishing')
+      almacenarDatosEnServidor('phishing')
       // Realizar acciones para la opción 1
     } else if (actualselectedOption.toLowerCase() == 'a2' || actualselectedOption.toLowerCase() == "ransomware") {
       ransomware(bot)
-      insertarDatos('ransomware')
+      almacenarDatosEnServidor('ransomware')
+      // Realizar acciones para la opción 2
+    }
+    else if (actualselectedOption.toLowerCase() == 'a3' || actualselectedOption.toLowerCase() == "malware") {
+      malware(bot)
+      almacenarDatosEnServidor('malware')
+      // Realizar acciones para la opción 2
+    }
+    else if (actualselectedOption.toLowerCase() == 'a4' || actualselectedOption.toLowerCase() == "data breach" || actualselectedOption.toLowerCase() == "data breaches" ) {
+      databreach(bot)
+      almacenarDatosEnServidor('data breach')
       // Realizar acciones para la opción 2
     }
 
