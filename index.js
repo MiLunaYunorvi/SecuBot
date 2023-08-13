@@ -12,9 +12,12 @@ var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
 
 const config = {
-  webhookUrl: "https://afbb-2001-420-3245-1300-897d-b6be-3dea-f61f.ngrok-free.app",
+<<<<<<< HEAD
+=======
+  webhookUrl: "18.217.250.67",
+>>>>>>> ed20e121bd22f86a47d81ed51e1705cba6ffc617
   token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
-  port: 7001
+  port: 80
 };
 
 // init framework
