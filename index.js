@@ -10,9 +10,10 @@ app.use(express.static("images"));
 var {portafolio_opciones, portafolio_llamada} = require('./portafolio')
 var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
-
+const publicIP = '52.14.194.194'
+console.log(publicIP)
 const config = {
-  webhookUrl: "18.217.250.67",
+	webhookUrl: `http://${publicIP}`,
   token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
   port: 80
 };

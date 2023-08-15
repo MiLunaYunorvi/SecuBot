@@ -17,7 +17,7 @@ let intent = null;
 const initializeChatbot = async () => {
   if (!chatbotInitialized) {
     console.log("ENTRENANDO")
-    const manager = new NlpManager({ languages: ['es'], threshold: 0.5});
+    const manager = new NlpManager({ languages: ['es'], threshold: 0.4});
     await trainModel(manager);
     chatbotResponseFunc = processQuestion.bind(null, manager);
     [intent] = await processQuestion(manager, ''); // Obtener el valor de 'intent' usando processQuestion
