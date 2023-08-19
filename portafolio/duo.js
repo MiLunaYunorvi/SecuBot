@@ -39,12 +39,13 @@ const duo_options = {
 const duo = (bot) => {
     let mensaje = ''
     let header = 'Seleccionaste **CISCO DUO**. Estos son los recursos disponibles: \n\n\n'
-    mensaje = mensaje + header,
-    Object.entries(duo_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**: ${value}\n\n\n`
+    
+    Object.entries(xdr_options).map(([key,value])=>{
+        mensaje = mensaje + `\n **${key}**: ${value}\n`
     })
+    
     let footer = 'También puedes probar con: "Licencias de Duo", "Opciones de MFA de DUO"..';
-    mensaje = mensaje  + footer;
+    mensaje = header + mensaje  + footer;
     bot.say("markdown", mensaje)
     
 }
