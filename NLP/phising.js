@@ -75,7 +75,7 @@ const variations = ['pishing', 'phishing', 'phising', 'fishin', 'fishing','phish
 }
 
 const ddos_training = async(manager) => {
-  const variations = ['DDoS', 'DDOS', 'DDoS attack', 'Distributed Denial of Service', 'Denial of Service', 'DoS', 'DOS', 'DoS attack', 'Denegación de Servicio', 'Ataque de denegación de servicio'];
+  const variations = ['DDoS','ddos','Ddos', 'DDOS', 'DDoS attack', 'Distributed Denial of Service', 'Denial of Service', 'DoS', 'DOS', 'DoS attack', 'Denegación de Servicio', 'Ataque de denegación de servicio'];
 
     variations.forEach((variant) => {
       const tokens = tokenizer.tokenize(variant);
@@ -134,7 +134,7 @@ const ddos_training = async(manager) => {
   
     // Añade las respuestas para el NLG
     manager.addAnswer('es', 'intencion.soluciones_ddos', respuesta_ddos());
-    manager.addAnswer('es', 'intencion.ddos_concepto', 'El ddos y su concepto');
+    manager.addAnswer('es', 'intencion.ddos_concepto', respuesta_ddos());
     //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
     //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
 }
