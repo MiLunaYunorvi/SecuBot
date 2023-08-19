@@ -39,8 +39,7 @@ const xdr = (bot) => {
     let footer = 'También puedes probar con: "Licencias xdr", "XDR Licenciamiento", "Paquetes XDR".'
     
     Object.entries(xdr_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**:\n ${value}\n`
-    })
+
     mensaje = header + mensaje + footer,
     bot.say("markdown", mensaje)
     
