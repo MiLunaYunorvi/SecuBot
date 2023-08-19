@@ -22,7 +22,7 @@ const ransomware = (bot) => {
     let header = 'Seleccionaste **RANSOMWARE**. Estos son soluciones que puedes posicionar: \n\n\n'
     mensaje = mensaje + header,
     Object.entries(ransomware_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**\n: ${value}\n\n\n`
+        mensaje = mensaje + `\n **${key}**: ${value}\n `
     })
     bot.say("markdown", mensaje)
     
