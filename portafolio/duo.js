@@ -40,7 +40,7 @@ const duo = (bot) => {
     let mensaje = ''
     let header = 'Seleccionaste **CISCO DUO**. Estos son los recursos disponibles: \n\n\n'
     
-    Object.entries(xdr_options).map(([key,value])=>{
+    Object.entries(duo_options).map(([key,value])=>{
         mensaje = mensaje + `\n **${key}**: ${value}\n`
     })
     
