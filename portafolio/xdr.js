@@ -19,7 +19,7 @@ const my_xdr_options = {
      }
 
 const xdr_options = {
-        '🤔 ¿QUÉ ES?:': `
+        '🤔 ¿QUÉ ES?': `
         Es una solución integral de gestión de identidad y acceso (IAM) que proporciona una amplia gama de funcionalidades
            
     `,
@@ -37,10 +37,11 @@ const xdr = (bot) => {
     let mensaje = ''
     let header = 'Seleccionaste XDR. Estos son los recursos disponibles: \n\n\n'
     let footer = 'También puedes probar con: "Licencias xdr", "XDR Licenciamiento", "Paquetes XDR".'
-    mensaje = mensaje + header + footer,
+    
     Object.entries(xdr_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**\n: ${value}\n\n\n`
+        mensaje = mensaje + `**${key}**:\n ${value}\n\n\n`
     })
+    mensaje = mensaje + header + footer,
     bot.say("markdown", mensaje)
     
 }
