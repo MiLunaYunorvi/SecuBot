@@ -28,7 +28,7 @@ const phishing = (bot) => {
     let header = 'Seleccionaste **PHISING**. Estos son soluciones que puedes posicionar: \n\n\n'
     mensaje = mensaje + header,
     Object.entries(phising_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**: ${value}\n\n\n`
+        mensaje = mensaje + `\n **${key}**: ${value}\n `
     })
     bot.say("markdown", mensaje)
     

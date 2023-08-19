@@ -12,7 +12,7 @@ const databreach = (bot) => {
     let header = 'Seleccionaste **DATA BREACHES**.\n\n\n'
     mensaje = mensaje + header,
     Object.entries(databreach_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**\n: ${value}\n\n\n`
+        mensaje = mensaje + `\n **${key}**: ${value}\n `
     })
     bot.say("markdown", mensaje)
     
