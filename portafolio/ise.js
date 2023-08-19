@@ -40,7 +40,7 @@ const ise = (bot) => {
     let mensaje = ''
     let header = `Seleccionaste ${solucion}. Estos son los recursos disponibles: \n\n\n`
    
-    Object.entries(xdr_options).map(([key,value])=>{
+    Object.entries(ise_options).map(([key,value])=>{
         mensaje = mensaje + `\n **${key}**: ${value}\n`
     })
     let footer = `También puedes consultar por: "Casos de uso de ${solucion}`;

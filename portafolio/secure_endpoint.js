@@ -36,7 +36,7 @@ const secureendpoint = (bot) => {
     let mensaje = ''
     let header = `Seleccionaste ${solucion}. Estos son los recursos disponibles: \n\n\n`
     
-    Object.entries(xdr_options).map(([key,value])=>{
+    Object.entries(secureendpoint_options).map(([key,value])=>{
         mensaje = mensaje + `\n **${key}**: ${value}\n`
     })
     
