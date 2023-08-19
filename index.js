@@ -12,7 +12,7 @@ var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
 const {almacenarDatosEnServidor} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
-const publicIP = '52.14.194.194'
+const publicIP = '18.118.217.137'
 console.log(publicIP)
 const config = {
         webhookUrl: `http://${publicIP}`,
