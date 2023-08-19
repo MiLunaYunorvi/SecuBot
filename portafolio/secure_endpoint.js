@@ -35,12 +35,10 @@ const secureendpoint_options = {
 const secureendpoint = (bot) => {
     let mensaje = ''
     let header = `Seleccionaste ${solucion}. Estos son los recursos disponibles: \n\n\n`
-    mensaje = mensaje + header,
-    Object.entries(secureendpoint_options).map(([key,value])=>{
-        mensaje = mensaje + `**${key}**: ${value}\n\n\n`
+    Object.entries(xdr_options).map(([key,value])=>{
+        mensaje = mensaje + `**${key}**:\n ${value}\n\n\n`
     })
-    let footer = `También puedes consultar por: "Licencias de ${solucion}" y "Compatibilidad de ${solucion}`;
-    mensaje = mensaje  + footer;
+    mensaje = mensaje + header + footer,
     bot.say("markdown", mensaje)
     
 }
