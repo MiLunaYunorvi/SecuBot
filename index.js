@@ -12,7 +12,6 @@ var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
 const {almacenarDatosEnServidor} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
-
 const publicIP = '52.14.194.194'
 console.log(publicIP)
 const config = {
@@ -20,7 +19,6 @@ const config = {
   token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
   port: 80
 };
-
 // init framework
 var framework = new framework(config);
 framework.start();
@@ -89,18 +87,7 @@ framework.on("log", (msg) => {
 /* On mention with command
 ex User enters @botname framework, the bot will write back in markdown
 */
-framework.hears(
-  "framework",
-  (bot) => {
-    console.log("framework command received");
-    bot.say(
-      "markdown",
-      "The primary purpose for the [webex-node-bot-framework](https://github.com/jpjpjp/webex-node-bot-framework) was to create a framework based on the [webex-jssdk](https://webex.github.io/webex-js-sdk) which continues to be supported as new features and functionality are added to Webex. This version of the project was designed with two themes in mind: \n\n\n * Mimimize Webex API Calls. The original flint could be quite slow as it attempted to provide bot developers rich details about the space, membership, message and message author. This version eliminates some of that data in the interests of efficiency, (but provides convenience methods to enable bot developers to get this information if it is required)\n * Leverage native Webex data types. The original flint would copy details from the webex objects such as message and person into various flint objects. This version simply attaches the native Webex objects. This increases the framework's efficiency and makes it future proof as new attributes are added to the various webex DTOs "
-    );
-  },
-  "**framework**: (learn more about the Webex Bot Framework)",
-  0
-);
+
 
 /*PORTAFOLIO*/ 
 framework.hears(/^(S|soluciones|portafolio)$/i, async (bot,trigger)=>{
