@@ -234,7 +234,6 @@ const umbrella_training = async(manager) => {
   });
 
 
-
   variations.forEach((variant) => {
     const tokens = tokenizer.tokenize(variant);
     const token = tokens.join(' ');

@@ -10,9 +10,13 @@ app.use(express.static("images"));
 var {portafolio_opciones, portafolio_llamada} = require('./portafolio')
 var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
+const {almacenarDatosEnServidor} = require ('./save_data/db_save')
+const {intent_to_save} = require('./NLP/index')
 
+const publicIP = '52.14.194.194'
+console.log(publicIP)
 const config = {
-  webhookUrl: "18.217.250.67",
+        webhookUrl: `http://${publicIP}`,
   token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
   port: 80
 };
@@ -106,7 +110,7 @@ framework.hears(/^(S|soluciones|portafolio)$/i, async (bot,trigger)=>{
 
 
 /*OPCION DE PORTAFOLIO*/
-framework.hears(/^(S1|S2|S5|umbrella|duo|xdr)$/i, async (bot,trigger)=>{
+framework.hears(/^(S1|S2|S3|S4|S5|umbrella|duo|xdr|ise|secure endpoint)$/i, async (bot,trigger)=>{
   console.log("Se llamo a una solución de portafolio.")
   portafolio_opciones(bot,trigger); 
 },1);
@@ -318,7 +322,7 @@ framework.hears(
     console.log(trigger)
     console.log(`catch-all handler fired for user input: ${trigger.text}`);
     
-    let {respuesta, url } = await initializeAndProcessChatbot(trigger.text)
+    let {respuesta, url, _intent } = await initializeAndProcessChatbot(trigger.text)
     
     if (respuesta==='None'){
       bot.say("markdown", framework.showHelp())
@@ -330,6 +334,10 @@ framework.hears(
       //    .then(() => sendHelp(bot))
       .then(() => {
         url !== undefined ? bot.say({ text: '', file: url }) : null;
+      })
+      .then(()=>{
+        let consulta = intent_to_save(_intent)
+        almacenarDatosEnServidor(consulta)
       })      
       .catch((e) =>
         console.error(`Problem in the unexepected command hander: ${e.message}`)

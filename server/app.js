@@ -15,6 +15,10 @@ const pool = mysql.createPool({
 // Middleware para poder analizar el contenido de las solicitudes en formato JSON
 app.use(express.json());
 
+app.get('/pruebabot', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'});
+});
+
 // Ruta para almacenar datos en la tabla ConsultasLOG
 app.post('/guardarconsulta', (req, res) => {
   const { fecha, consulta } = req.body;
