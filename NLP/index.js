@@ -32,7 +32,7 @@ const initializeAndProcessChatbot = async (pregunta) => {
   const [respuesta, _intent] = await chatbotResponse(pregunta);
   let url = intent_to_url(_intent)
   console.log('EN SEGUNDA FUNCION: ' , respuesta, url);
-  return {respuesta, url};
+  return {respuesta, url ,_intent};
 };
 
 const intent_to_url = (intent) => {
@@ -50,5 +50,33 @@ const intent_to_url = (intent) => {
   return intent_url_objeto[intent]
 }
 
-module.exports = { initializeAndProcessChatbot };
+const intent_to_save = (intent) => {
+  const intent_to_word_objeto ={
+    "intencion.phishing_concepto" : "phishing" ,
+    "intencion.soluciones_phishing" : "phishing" ,
+
+    "intencion.ddos_concepto" : "ddos" ,
+    "intencion.soluciones_ddos" : "ddos" ,
+
+    "intencion.xdr_concepto" : "xdr" ,
+    "intencion.licencias_xdr" : "" ,
+
+    "intencion.umbrella_concepto" : "umbrella" ,
+    "intencion.licencias_umbrella" : "umbrella" ,
+
+    "intencion.duo_concepto" : "duo" ,
+    "intencion.licencias_duo" : "duo" ,
+    "intencion.opcionesMFA_duo" : "duo" ,
+
+    "intencion.ise_concepto" : "ise" ,
+    "intencion.usecases_ise" : "ise" ,
+
+    "intencion.secureendpoint_concepto" : "secure endpoint" ,
+    "intencion.licencias_secureendpoint" : "secure endpoint" ,
+    "intencion.compatibilidad_secureendpoint" : "secure endpoint" ,
+  }
+  return intent_to_word_objeto[intent]
+}
+
+module.exports = { initializeAndProcessChatbot, intent_to_save };
 
