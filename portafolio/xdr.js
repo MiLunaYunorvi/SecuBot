@@ -20,17 +20,17 @@ const my_xdr_options = {
 
 const xdr_options = {
         '🤔 ¿QUÉ ES?': `
-        Es una solución integral de gestión de identidad y acceso (IAM) que proporciona una amplia gama de funcionalidades
+        -Es una solución integral de gestión de identidad y acceso (IAM) que proporciona una amplia gama de funcionalidades
            
     `,
         '🌟 FUNCIONALIDADES': `
-        Con Cisco XDR, los equipos de seguridad de todos los niveles de habilidad pueden correlacionar datos de múltiples fuentes para detectar eventos de manera más rápida, agilizar las investigaciones, priorizar y acelerar las respuestas, lo que permite a los analistas descubrir las amenazas más sofisticadas, aumentar la productividad y lograr una resiliencia en materia de seguridad.
+        -Con Cisco XDR, los equipos de seguridad de todos los niveles de habilidad pueden correlacionar datos de múltiples fuentes para detectar eventos de manera más rápida, agilizar las investigaciones, priorizar y acelerar las respuestas, lo que permite a los analistas descubrir las amenazas más sofisticadas, aumentar la productividad y lograr una resiliencia en materia de seguridad.
 
         ` ,
         '🤓RECURSOS' : `
-        - XDR BDM PPT: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/Cisco+XDR+BDM.pptx 
-        - XDR BDM PDF: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/Cisco+XDR+BDM.pdf 
-        - XDR at Glance: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/XDR+at+Glance.pdf 
+        -XDR BDM PPT: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/Cisco+XDR+BDM.pptx 
+        -XDR BDM PDF: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/Cisco+XDR+BDM.pdf 
+        -XDR at Glance: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/XDR/XDR+at+Glance.pdf 
     `,
 }   
 const xdr = (bot) => {
@@ -41,7 +41,7 @@ const xdr = (bot) => {
     Object.entries(xdr_options).map(([key,value])=>{
         mensaje = mensaje + `**${key}**:\n ${value}\n\n\n`
     })
-    mensaje = mensaje + header + footer,
+    mensaje = header + mensaje + footer,
     bot.say("markdown", mensaje)
     
 }
