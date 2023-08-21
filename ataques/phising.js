@@ -1,4 +1,4 @@
-const phising_options = { 
+const phising_myoptions = { 
     'ATAQUE': 'PHISING',
     '¿Qué es?': 'Ataque donde se intenta obtener información confidencial, como contraseñas, información financiera o datos personales, haciéndose pasar por una entidad legítima. A través de correos electrónicos, SMS, enlaces maliciosos o archivos infectados',
     '¿Cómo evitarlo?': 
@@ -22,6 +22,16 @@ const phising_options = {
     `,
     
      }
+
+const phising_options = { 
+        'ATAQUE': 'PHISING',
+        '¿Qué es?': 'El phishing es el envío de comunicaciones fraudulentas que parecen provenir de una fuente legítima y confiable, generalmente a través de correo electrónico y mensajes de texto. El objetivo del atacante es robar dinero, obtener acceso a datos sensibles e información de inicio de sesión o instalar malware en el dispositivo de la víctima. El phishing es un tipo de ciberataque peligroso, dañino y cada vez más común ',
+        '🛡️ CISCO CONTRA El PHISHING': 
+        `
+        - Seguridad en el email: detecta y bloquea emails fraudulentos.
+        - Umbrella: evita que un usuario accede a sitios maliciosos.
+        `,
+         }
 
 const phishing = (bot) => {
     let mensaje = ''

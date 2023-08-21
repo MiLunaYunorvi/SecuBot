@@ -20,6 +20,7 @@ const my_Umbrella_options = {
      }
 
 const Umbrella_options = {
+    'Cisco Umbrella' : 'Seguridad todo en uno.',
     '🌟FUNCIONES:': `
     **A: Unifica funciones de seguridad en un solo servicio en la nube:**
         - Protección de DNS: Bloquea amenazas en la capa DNS y evita el acceso a sitios web maliciosos.

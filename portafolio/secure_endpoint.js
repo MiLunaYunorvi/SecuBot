@@ -19,6 +19,7 @@ const my_secureendpoint_options = {
      }
 
 const secureendpoint_options = {
+        'Secure Endpoint':'Seguridad del endpoint',
         '🌟FUNCIONES:': `
         Protege los endpoints, ya sea que estén conectados a una red protegida o navegando por Internet, con capacidades continuas e integradas de **detección, respuesta y remediación**.           
     `,

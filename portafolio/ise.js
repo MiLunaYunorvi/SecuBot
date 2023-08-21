@@ -16,9 +16,9 @@ const my_ise_options = {
      }
 
 const ise_options = {
+        'CISCO ISE' : 'Seguridad en el acceso basado en polìticas.',
         '🤔 ¿QUÉ ES?:': `
         Es una solución integral de gestión de identidad y acceso (IAM) que proporciona una amplia gama de funcionalidades
-           
     `,
         '🌟 FUNCIONALIDADES': `
             1- Autenticación: Cisco ISE autentica usuarios y dispositivos.
@@ -30,8 +30,8 @@ const ise_options = {
 
         ` ,
         '🤓RECURSOS' : `
-        - Secure Endpoint BDM (ppt): https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/Secure+Endpoint/Secure+Endpoint+BDM.pptx
-        - Top 5 tips para escoger Secure Endpoint: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/Secure+Endpoint/Top+5+tips+choosing+Endpoint+Protection.pdf
+        - ISE Zero Trust Workplace BDM: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/ISE/Cisco+Identity+Services+Engine+(ISE)+Zero+Trust+Workplace+BDM.pdf
+        - Total Economic Impact ISE: https://secubotbucket.s3.us-east-2.amazonaws.com/SOLUCIONES/ISE/Total+Economic+Impact+ISE.pdf
     `,
 }     
 

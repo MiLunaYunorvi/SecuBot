@@ -20,8 +20,7 @@ const my_xdr_options = {
 
 const xdr_options = {
         '🤔 ¿QUÉ ES?': `
-        -Es una solución integral de gestión de identidad y acceso (IAM) que proporciona una amplia gama de funcionalidades
-           
+        -Cisco XDR es una solución de detección y respuesta extendida basada en la nube diseñada para operaciones de seguridad.           
     `,
         '🌟 FUNCIONALIDADES': `
         -Con Cisco XDR, los equipos de seguridad de todos los niveles de habilidad pueden correlacionar datos de múltiples fuentes para detectar eventos de manera más rápida, agilizar las investigaciones, priorizar y acelerar las respuestas, lo que permite a los analistas descubrir las amenazas más sofisticadas, aumentar la productividad y lograr una resiliencia en materia de seguridad.

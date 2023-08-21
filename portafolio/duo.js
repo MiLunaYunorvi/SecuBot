@@ -23,6 +23,7 @@ const duo_myoptions = {
      }
 
 const duo_options = {
+    'Cisco DUO:': 'Seguridad de la identidad',
     '🌟FUNCIONES:': `
         **1- Protección de acceso:** protege el acceso a aplicaciones críticas, datos y sistemas.
         **2- Opciones de autenticación segura:** Ofrece autenticación resistente al phishing con opciones de Autenticación sin contraseña y Autenticación de múltiples factores (MFA).
