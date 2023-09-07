@@ -15,12 +15,12 @@ const {intent_to_save} = require('./NLP/index')
 const publicIP = '18.118.217.137'
 console.log(publicIP)
 const config = {
-  webhookUrl: "https://a75a-179-6-14-155.ngrok-free.app",
-  token: "NDk0M2E3MDAtZDY1Mi00ZDllLWE5MmUtZmYyYjhmN2U2N2RiNWI3YmRhNzEtZmQw_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
-  port: 7001,
-  //webhookUrl: `http://${publicIP}`,
-  //token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
-  //port: 80
+  // webhookUrl: "https://a75a-179-6-14-155.ngrok-free.app",
+  // token: "NDk0M2E3MDAtZDY1Mi00ZDllLWE5MmUtZmYyYjhmN2U2N2RiNWI3YmRhNzEtZmQw_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  // port: 7001,
+  webhookUrl: `http://${publicIP}`,
+  token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  port: 80
 };
 // init framework
 var framework = new framework(config);
