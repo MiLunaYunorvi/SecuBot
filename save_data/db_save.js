@@ -9,13 +9,29 @@ function obtenerFechaFormateada() {
     return `${year}/${month}/${day}`;
   }
 
+  
+function obtenerDominio(correoElectronico) {
+  // Utiliza una expresión regular para buscar el dominio después de "@"
+  const regex = /@([^\.]+)/;
+  const match = correoElectronico.match(regex);
+
+  // Si se encuentra una coincidencia, devuelve el dominio (grupo capturado)
+  if (match && match[1]) {
+    return match[1];
+  } else {
+    // Si no se encuentra una coincidencia, devuelve null o un mensaje de error
+    return null;
+  }
+}
 
 // Función para almacenar datos en el servidor backend
-async function almacenarDatosEnServidor(consulta) {
+async function almacenarDatosEnServidor(consulta, persona_datos = null) {
   try {
     const response = await axios.post('http://localhost:3000/guardarconsulta', {
       fecha: obtenerFechaFormateada() ,
-      consulta: consulta
+      persona: persona_datos ? persona_datos[0] : null,
+      consulta: consulta,
+      dominio: persona_datos ? persona_datos[1] : null,
     });
 
     console.log(response.data); // Mensaje de éxito desde el servidor
@@ -25,4 +41,4 @@ async function almacenarDatosEnServidor(consulta) {
 }
 
 
-module.exports = {almacenarDatosEnServidor}
+module.exports = {almacenarDatosEnServidor, obtenerDominio}

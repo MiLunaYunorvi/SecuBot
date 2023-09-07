@@ -5,19 +5,26 @@ const {xdr_options} = require('../portafolio/xdr')
 const {Umbrella_options} = require('../portafolio/umbrella')
 const {duo_options} = require('../portafolio/duo')
 const {ise_options} = require('../portafolio/ise')
+const {ransomware_options} = require('../ataques/ransomware')
+const {databreach_options} = require('../ataques/databreach')
+const {malware_options} = require('../ataques/malware')
+
 const {secureendpoint_options} = require('../portafolio/secure_endpoint')
 //Importando respuestas
-const {respuesta_phishing, respuesta_ddos , respuesta_xdr, respuesta_umbrella, respuesta_duo, respuesta_ise, respuesta_secureendpoint}= require('./respuestas')
+const {  respuesta_phishing, respuesta_ransomware , respuesta_ddos , respuesta_xdr, respuesta_umbrella, respuesta_duo, respuesta_ise, respuesta_secureendpoint, respuesta_malware, respuesta_databreach}= require('./respuestas')
 
 const trainModel = async (manager) => {
 
       phising_training(manager)
       ddos_training(manager)
+      databreach_training(manager)
       xdr_training(manager)
       umbrella_training(manager)
       duo_training(manager)
       ise_training(manager)
       secureendpoint_training(manager)
+      malware_training(manager)
+      ransomware_training(manager)
       // Realizar el entrenamiento del modelo aquí
       await manager.train();
       console.log("ENTRENADO")
@@ -135,6 +142,162 @@ const ddos_training = async(manager) => {
     // Añade las respuestas para el NLG
     manager.addAnswer('es', 'intencion.soluciones_ddos', respuesta_ddos());
     manager.addAnswer('es', 'intencion.ddos_concepto', respuesta_ddos());
+    //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
+    //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
+}
+
+const malware_training = async(manager) => {
+  const variations = ['malware', 'malwar','malicious software', 'software malicioso', 'virus','trojan'];
+
+    variations.forEach((variant) => {
+      const tokens = tokenizer.tokenize(variant);
+      const sentence = tokens.join(' '); // Unir los tokens en una sola cadena
+      manager.addDocument('es', sentence, 'intencion.malware_concepto');
+    });
+    
+    variations.forEach((variant) => {
+        const tokens = tokenizer.tokenize(variant);
+        const token = tokens.join(' ');
+
+        manager.addDocument('es', 'Qué es ' + token + '?' , 'intencion.malware_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?' , 'intencion.malware_concepto');
+        manager.addDocument('es', 'Qué significa ' + token + '?' , 'intencion.malware_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?', 'intencion.malware_concepto');
+        manager.addDocument('es', 'Explícame un' + token + '.', 'intencion.malware_concepto');
+        manager.addDocument('es', 'Qué significa' + token + '?', 'intencion.malware_concepto');
+        manager.addDocument('es', '¿En qué consiste un ataque' + token + '?', 'intencion.malware_concepto');
+        manager.addDocument('es', '¿Cómo funciona un ataque' + token + '?', 'intencion.malware_concepto');
+        manager.addDocument('es', '¿Qué puedes decirme sobre los ataques' + token + '?', 'intencion.malware_concepto');
+    });
+
+    const generateMalwareResponse = () => {
+      let mensaje = '';
+      Object.entries(malware_options).map(([key, value]) => {
+        mensaje = mensaje + `**${key}**: ${value}\n\n\n`;
+      });
+      return mensaje;
+    };
+  
+  
+    // Añade las respuestas para el NLG
+   
+    manager.addAnswer('es', 'intencion.malware_concepto', generateMalwareResponse());
+    //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
+    //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
+}
+
+const databreach_training = async(manager) => {
+  const variations = [
+    // En inglés
+    'data breach',
+    'databreach',
+    'data breach incident',
+    'data breach event',
+    'data security breach',
+    'data privacy breach',
+    'information breach',
+    
+    // En español
+    'violación de datos',
+    'fuga de información',
+    'brecha de seguridad de datos',
+    'brecha de privacidad de datos',
+    'incidente de violación de datos',
+    'incidente de fuga de información',
+    'incidente de brecha de seguridad de datos',
+  ];
+
+    variations.forEach((variant) => {
+      const tokens = tokenizer.tokenize(variant);
+      const sentence = tokens.join(' '); // Unir los tokens en una sola cadena
+      manager.addDocument('es', sentence, 'intencion.databreach_concepto');
+    });
+    
+    variations.forEach((variant) => {
+        const tokens = tokenizer.tokenize(variant);
+        const token = tokens.join(' ');
+
+        manager.addDocument('es', 'Qué es ' + token + '?' , 'intencion.databreach_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?' , 'intencion.databreach_concepto');
+        manager.addDocument('es', 'Qué significa ' + token + '?' , 'intencion.databreach_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?', 'intencion.databreach_concepto');
+        manager.addDocument('es', 'Explícame un' + token + '.', 'intencion.databreach_concepto');
+        manager.addDocument('es', 'Qué significa' + token + '?', 'intencion.databreach_concepto');
+        manager.addDocument('es', '¿En qué consiste un ataque' + token + '?', 'intencion.databreach_concepto');
+        manager.addDocument('es', '¿Cómo funciona un ataque' + token + '?', 'intencion.databreach_concepto');  
+        manager.addDocument('es', '¿Qué puedes decirme sobre los ataques' + token + '?', 'intencion.databreach_concepto');    
+    });
+    
+    const generateDataBreachResponse = () => {
+      let mensaje = '';
+      Object.entries(databreach_options).map(([key, value]) => {
+        mensaje = mensaje + `**${key}**: ${value}\n\n\n`;
+      });
+      return mensaje;
+    };
+
+    // Añade las respuestas para el NLG
+   
+    manager.addAnswer('es', 'intencion.databreach_concepto', generateDataBreachResponse ());
+    //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
+    //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
+}
+
+const ransomware_training = async(manager) => {
+  const variations = [
+    // En inglés
+    'ransomware',
+    'ransom ware',
+    'ransomware attack',
+    'malicious software',
+    'crypto-ransomware',
+    'data kidnapping',
+    'cryptovirology',
+    
+    // En español
+    'secuestro de datos',
+    'malware de rescate',
+    'software malicioso',
+    'cripto-ransomware',
+    'ataque de ransomware',
+    'encriptación de datos',
+    'virus de rescate',
+  ];
+  
+
+    variations.forEach((variant) => {
+      const tokens = tokenizer.tokenize(variant);
+      const sentence = tokens.join(' '); // Unir los tokens en una sola cadena
+      manager.addDocument('es', sentence, 'intencion.ransomware_concepto');
+    });
+    
+    variations.forEach((variant) => {
+        const tokens = tokenizer.tokenize(variant);
+        const token = tokens.join(' ');
+
+        manager.addDocument('es', 'Qué es ' + token + '?' , 'intencion.ransomware_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?' , 'intencion.ransomware_concepto');
+        manager.addDocument('es', 'Qué significa ' + token + '?' , 'intencion.ransomware_concepto');
+        manager.addDocument('es', 'Qué es un ataque' + token + '?', 'intencion.ransomware_concepto');
+        manager.addDocument('es', 'Explícame un' + token + '.', 'intencion.ransomware_concepto');
+        manager.addDocument('es', 'Qué significa' + token + '?', 'intencion.ransomware_concepto');
+        manager.addDocument('es', '¿En qué consiste un ataque' + token + '?', 'intencion.ransomware_concepto');
+        manager.addDocument('es', '¿Cómo funciona un ataque' + token + '?', 'intencion.ransomware_concepto');  
+        manager.addDocument('es', '¿Qué puedes decirme sobre los ataques' + token + '?', 'intencion.ransomware_concepto');    
+    });
+
+
+    // Añade las respuestas para el NLG
+    const generateRansomwareResponse = () => {
+      let mensaje = '';
+      Object.entries(ransomware_options).map(([key, value]) => {
+        mensaje = mensaje + `**${key}**: ${value}\n\n\n`;
+      });
+      return mensaje;
+    };
+  
+   
+    manager.addAnswer('es', 'intencion.ransomware_concepto', generateRansomwareResponse());
     //manager.addAnswer('es', 'intencion.pregunta', 'Para prevenir el phishing, es importante ser cauteloso al abrir correos electrónicos y hacer clic en enlaces desconocidos. También se recomienda utilizar autenticación de dos factores y mantener los sistemas y aplicaciones actualizados.');
     //manager.addAnswer('es', 'intencion.ataques', 'Algunos tipos comunes de ataques de phishing incluyen spear phishing, whaling, vishing, smishing y pharming.');
 }

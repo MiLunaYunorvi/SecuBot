@@ -46,6 +46,6 @@ const ransomware = (bot) => {
     
 }
 
-module.exports = {ransomware}
+module.exports = {ransomware, ransomware_options}
 
 

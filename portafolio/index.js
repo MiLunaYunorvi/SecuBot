@@ -1,9 +1,8 @@
 var framework = require("webex-node-bot-framework");
 const {umbrella} = require('./umbrella')
 const {duo} = require('./duo')
-const {insertarDatos} = require('../save_data/sheet')
 const {xdr} = require('./xdr')
-const {almacenarDatosEnServidor} = require('../save_data/db_save')
+const {almacenarDatosEnServidor, obtenerDominio} = require('../save_data/db_save')
 const {secureendpoint} = require('./secure_endpoint')
 const {ise} = require('./ise')
 
@@ -31,28 +30,30 @@ const portafolio_llamada = async (bot,trigger) => {
 
 const portafolio_opciones = async (bot,trigger) => {
     let actualselectedOption = trigger.message.text;
-    console.log(actualselectedOption)
+    let persona_datos = [trigger.person.displayName, obtenerDominio(trigger.person.userName)]
+    let solucion 
+    //console.log(actualselectedOption)
     if ( actualselectedOption.toLowerCase() == 's1' || actualselectedOption.toLowerCase() == "umbrella" ) {
       umbrella(bot)
-      almacenarDatosEnServidor('umbrella')
+      solucion = "Umbrella"
       // Realizar acciones para la opción 1
     } else if (actualselectedOption.toLowerCase() == 's2' || actualselectedOption.toLowerCase() == "duo") {
       duo(bot)
-      almacenarDatosEnServidor('duo')
+      solucion = 'duo'
       // Realizar acciones para la opción 2
     } else if (actualselectedOption.toLowerCase() == 's3' || actualselectedOption.toLowerCase() == "secure endpoint"){
       secureendpoint(bot)
-      almacenarDatosEnServidor('secure endpoint')
+      solucion = 'secure endpoint'
     } 
     else if (actualselectedOption.toLowerCase() == 's4' || actualselectedOption.toLowerCase() == "ise"){
       ise(bot)
-      almacenarDatosEnServidor('ise')
+      solucion = 'ise'
     }
     else if (actualselectedOption.toLowerCase() == 's5' || actualselectedOption.toLowerCase() == "xdr"){
       xdr(bot)
-      almacenarDatosEnServidor('xdr')
+      solucion = 'xdr'
     } 
-
+    almacenarDatosEnServidor(solucion,persona_datos)
 }
 
 

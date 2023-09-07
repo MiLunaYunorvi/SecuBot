@@ -18,6 +18,6 @@ const databreach = (bot) => {
     
 }
 
-module.exports = {databreach}
+module.exports = {databreach, databreach_options}
 
 

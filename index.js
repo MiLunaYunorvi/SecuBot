@@ -10,14 +10,17 @@ app.use(express.static("images"));
 var {portafolio_opciones, portafolio_llamada} = require('./portafolio')
 var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
-const {almacenarDatosEnServidor} = require ('./save_data/db_save')
+const {almacenarDatosEnServidor,obtenerDominio} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
 const publicIP = '18.118.217.137'
 console.log(publicIP)
 const config = {
-        webhookUrl: `http://${publicIP}`,
-  token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
-  port: 80
+  webhookUrl: "https://a75a-179-6-14-155.ngrok-free.app",
+  token: "NDk0M2E3MDAtZDY1Mi00ZDllLWE5MmUtZmYyYjhmN2U2N2RiNWI3YmRhNzEtZmQw_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  port: 7001,
+  //webhookUrl: `http://${publicIP}`,
+  //token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  //port: 80
 };
 // init framework
 var framework = new framework(config);
@@ -109,7 +112,7 @@ framework.hears(/^(A|ataques|ataque)$/i, async (bot,trigger)=>{
 },0)
 
 /*OPCION DE ATAQUES*/
-framework.hears(/^(A1|A2|A3|A4|phising|ransomware)$/i, async (bot,trigger)=>{
+framework.hears(/^(A1|A2|A3|A4|phising|ransomware|malware|data breach|data breaches)$/i, async (bot,trigger)=>{
   console.log("Se llamó a un ataque de la lista.")
   ataques_opciones(bot,trigger); 
 },1);
@@ -306,9 +309,9 @@ framework.hears(
   /.*/,
   async (bot, trigger) => {
     // This will fire for any input so only respond if we haven't already
-    console.log(trigger)
-    console.log(`catch-all handler fired for user input: ${trigger.text}`);
-    
+    //console.log("TRIGGER",trigger)
+    //console.log(`catch-all handler fired for user input: ${trigger.text}`);
+    let persona_datos = [trigger.person.displayName, obtenerDominio(trigger.person.userName)]
     let {respuesta, url, _intent } = await initializeAndProcessChatbot(trigger.text)
     
     if (respuesta==='None'){
@@ -324,7 +327,8 @@ framework.hears(
       })
       .then(()=>{
         let consulta = intent_to_save(_intent)
-        almacenarDatosEnServidor(consulta)
+        console.log(persona_datos)
+        almacenarDatosEnServidor(consulta,persona_datos)
       })      
       .catch((e) =>
         console.error(`Problem in the unexepected command hander: ${e.message}`)
@@ -354,3 +358,5 @@ process.on("SIGINT", () => {
     process.exit();
   });
 });
+
+
