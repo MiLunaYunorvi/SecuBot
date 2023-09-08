@@ -175,10 +175,10 @@ Framework.prototype.log = function (message) {
 };
 
 
-Framework.prototype.showHelp = function (header, footer) {
+Framework.prototype.showHelp = function (header, footer,footer2) {
   header = header ? header : 'SecuBot puede ayudarte con lo siguiente:';
-  footer = footer ? footer : 'Escribe la letra clave de tu selección 😃 \n Ejemplo: Si quieres saber con qué soluciones puedo ayudarte escribe: "S" ';
-
+  footer = footer ? footer : 'Ejemplo: Si quieres saber con qué soluciones puedo ayudarte escribe: "S" ';
+  footer2 = footer2 ? footer2 : '*Thinked and developed by Ronald Garcia & Michelle Luna 👩‍💻*';
   var mensaje = '';
 
   const helpObject = {
@@ -189,7 +189,7 @@ Framework.prototype.showHelp = function (header, footer) {
     mensaje = mensaje + `**${key}** : ${value}\n`;
   });
 
-  mensaje = header + '\n\n'+ mensaje + '\n' + footer + '\n\n';
+  mensaje = header + '\n\n'+ mensaje + '\n' + footer + '\n\n' + '\n\n' + footer2 ;
   //helpText = header + '\n\n' + helpText + '\n' + footer + '\n\n';
 
   return mensaje;
