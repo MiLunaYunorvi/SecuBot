@@ -12,14 +12,14 @@ var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
 const {almacenarDatosEnServidor,obtenerDominio} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
-const publicIP = 'SecuBotLB-1357288323.us-east-2.elb.amazonaws.com'
+const publicIP = '3.17.75.227'
 console.log(publicIP)
 const config = {
   // webhookUrl: "https://a75a-179-6-14-155.ngrok-free.app",
-  // token: "NDk0M2E3MDAtZDY1Mi00ZDllLWE5MmUtZmYyYjhmN2U2N2RiNWI3YmRhNzEtZmQw_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  token: "NDk0M2E3MDAtZDY1Mi00ZDllLWE5MmUtZmYyYjhmN2U2N2RiNWI3YmRhNzEtZmQw_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
   // port: 7001,
   webhookUrl: `http://${publicIP}`,
-  token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
+  //token: "NDk5NjFiODItY2IwMS00ZDRlLWE5MDItMWVjY2JkMjU3NThhZjRlYWRlYTUtMjQ4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
   port: 80
 };
 // init framework
