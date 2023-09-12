@@ -178,7 +178,7 @@ Framework.prototype.log = function (message) {
 Framework.prototype.showHelp = function (header, footer,footer2) {
   header = header ? header : 'SecuBot puede ayudarte con lo siguiente:';
   footer = footer ? footer : 'Ejemplo: Si quieres saber con qué soluciones puedo ayudarte escribe: "S" ';
-  footer2 = footer2 ? footer2 : '*Thinked and developed by Ronald Garcia & Michelle Luna 👩‍💻*';
+  footer2 = footer2 ? footer2 : '*Developed by Michelle Luna Alama 👩‍💻*';
   var mensaje = '';
 
   const helpObject = {
