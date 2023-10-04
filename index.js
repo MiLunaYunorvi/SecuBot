@@ -12,6 +12,7 @@ var {ataques_opciones, ataques_llamada} = require('./ataques')
 const {initializeAndProcessChatbot} = require('./NLP');
 const {almacenarDatosEnServidor,obtenerDominio} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
+require('dotenv').config()
 const gateway = "SecuBotLB-1357288323.us-east-2.elb.amazonaws.com"
 const publicIP = process.env.PUBLIC_IP
 console.log(publicIP)
