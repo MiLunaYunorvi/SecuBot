@@ -13,7 +13,7 @@ const {initializeAndProcessChatbot} = require('./NLP');
 const {almacenarDatosEnServidor,obtenerDominio} = require ('./save_data/db_save')
 const {intent_to_save} = require('./NLP/index')
 const gateway = "SecuBotLB-1357288323.us-east-2.elb.amazonaws.com"
-const publicIP = '3.17.75.227'
+const publicIP = process.env.PUBLIC_IP
 console.log(publicIP)
 const config = {
   // webhookUrl: "https://a75a-179-6-14-155.ngrok-free.app",

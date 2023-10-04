@@ -5,9 +5,9 @@ const app = express();
 
 // Configuración del pool de conexiones a la base de datos MySQL en AWS
 const pool = mysql.createPool({
-  host: 'secubot0db.cbgchnjnb4mc.us-east-2.rds.amazonaws.com',
-  user: 'milunauser',
-  password: 'Africa44!',
+  host: process.env.DB_ENDPOINT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   database: 'SecuBotDB', // El nombre de tu base de datos
   connectionLimit: 15, // Número máximo de conexiones en el pool
 });
