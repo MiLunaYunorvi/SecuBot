@@ -1,44 +1,21 @@
 # Webex-Bot-Starter
+🤖 ¿Un bot que resuelve tus dudas sobre ciberseguridad? 🤖
+Si, 𝗦𝗲𝗰𝘂𝗕𝗼𝘁 puede ser tu herramienta de consulta rápida para una conversación inicial de seguridad con tu cliente.
 
-### Starter kit and template for a simple Webex bot
+🧐¿𝗤𝘂é 𝗲𝘀 𝗦𝗲𝗰𝘂𝗕𝗼𝘁?:
+- SecuBot es un bot de Webex diseñado para brindarte información sobre el portafolio de seguridad de Cisco. Puedes iniciar una conversación con él y hacerle preguntas en lenguaje natural.
+  
+📑𝗔𝗰𝗰𝗲𝘀𝗼 𝗮 𝗥𝗲𝗰𝘂𝗿𝘀𝗼𝘀 𝗩𝗮𝗹𝗶𝗼𝘀𝗼𝘀:
+- SecuBot te proporciona desde conceptos generales hasta recursos en PDF e imágenes relacionadas con licencias y funciones de seguridad.
 
-_For a more detailed walkthorugh, see the [companion blog post here](https://developer.webex.com/blog/from-zero-to-webex-teams-chatbot-in-15-minutes)_
+👩‍💻 𝗣𝗿𝘂é𝗯𝗮𝗹𝗼 𝗔𝗵𝗼𝗿𝗮:
+¿Listo para experimentar con SecuBot? Encuéntralo en Webex como: 𝗯𝗼𝘁𝗺𝗶1@𝘄𝗲𝗯𝗲𝘅.𝗯𝗼𝘁
 
-This is a very simple Webex node.JS bot application that serves as a template to be further extended. It features the [webex-node-bot-framework](https://github.com/webex/webex-bot-node-framework) that simplifies development for Webex bots by abstracting away some of the complexity of the API calls and registering for events. Some parts of the app are taken from on the old [sparkbotstarter](https://github.com/valgaze/sparkbotstarter) template created by Victor Algaze.
+¡𝑬𝒔𝒕𝒂 𝒂𝒒𝒖𝒊 𝒑𝒂𝒓𝒂 𝒂𝒚𝒖𝒅𝒂𝒓𝒕𝒆 𝒂 𝒄𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒆𝒓 𝒎𝒆𝒋𝒐𝒓 𝒍𝒂 𝒔𝒆𝒈𝒖𝒓𝒊𝒅𝒂𝒅 𝒅𝒆 𝑪𝒊𝒔𝒄𝒐!
 
-Here is the bot in action:
+[![Watch the video](https://img.youtube.com/vi/a5XOWGkSJX0/0.jpg)](https://youtu.be/a5XOWGkSJX0)
 
-git
-![What we're making](./images/webexbotstarter.gif)
 
-## Prerequisites:
-
-- [ ] node.js (minimum supported v8.0.0 & npm 2.14.12 and up)
-
-- [ ] [Sign up for Webex Developer Account](https://developer.webex.com/signup)
-
----
-
-## Steps to get the bot working
-
-1. Create a Webex bot (save the API access token and username): https://developer.webex.com/my-apps/new/bot
-
-2. Sign up for nGrok, then connect and start it on your machine (save the port number and public web address): https://ngrok.com/download
-
-3. After installing ngrok, run it on your local machine to get a public ip address, eg `ngrok http 3000 --region=eu`
-
-4. Copy the ip address displayed in the ngrok window, ie: : https://1234.eu.ngrok.io
-
-5. Copy the `.env.local` file to a file called `.env`
-
-6. Edit `.env` with the following values:
-
-- BOTTOKEN - Set this to the token for your bot that you got in step 1
-- PORT - Set this to the port you set when you started ngrok in step 3 (ie: 3000)
-- WEBHOOKURL - Set this to the ip address that you copied in step 4
-
-5. Turn on your bot server with `npm start`
-
-6. Create a space in Webex
-
-7. Add the bot (by its username) to the space in Webex
+Un poco detrás de SecuBot:
+Secubot fue desarrollado en JavaScript con funciones de NLP (Procesamiento de Lenguaje Natural) y se ejecuta completamente en la nube de AWS. La infraestructura se desplegó con Terraform, y se emplearon scripts de bash y Python para el aprovisionamiento y despliegue de la aplicación. 
+Automatizar todas estas tareas con un solo comando fue un logro fascinante!!
