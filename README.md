@@ -1,6 +1,6 @@
 # Webex-Bot-Starter
 🤖 ¿Un bot que resuelve tus dudas sobre ciberseguridad? 🤖
-Si, 𝗦𝗲𝗰𝘂𝗕𝗼𝘁 puede ser tu herramienta de consulta rápida para una conversación inicial de seguridad con tu cliente.
+- Si, 𝗦𝗲𝗰𝘂𝗕𝗼𝘁 puede ser tu herramienta de consulta rápida para una conversación inicial de seguridad con tu cliente.
 
 😀¿Que es SecuBot?:
 - SecuBot es un bot de Webex diseñado para brindarte información sobre el portafolio de seguridad de Cisco. Puedes iniciar una conversación con él y hacerle preguntas en lenguaje natural.
@@ -9,7 +9,7 @@ Si, 𝗦𝗲𝗰𝘂𝗕𝗼𝘁 puede ser tu herramienta de consulta rápida pa
 - SecuBot te proporciona desde conceptos generales hasta recursos en PDF e imágenes relacionadas con licencias y funciones de seguridad.
 
 👩‍💻  Pruebalo ahora:
-¿Listo para experimentar con SecuBot? Encuéntralo en Webex como: botmi1@webex.bot 
+- ¿Listo para experimentar con SecuBot? Encuéntralo en Webex como: botmi1@webex.bot 
 
 
 !Esta aqui para ayudarte a comprender mejor la seguridad de Cisco!
