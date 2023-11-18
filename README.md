@@ -9,7 +9,7 @@ Si, 𝗦𝗲𝗰𝘂𝗕𝗼𝘁 puede ser tu herramienta de consulta rápida pa
 - SecuBot te proporciona desde conceptos generales hasta recursos en PDF e imágenes relacionadas con licencias y funciones de seguridad.
 
 👩‍💻  Pruebalo ahora:
-¿Listo para experimentar con SecuBot? Encuéntralo en Webex como: 𝗯𝗼𝘁𝗺𝗶1@𝘄𝗲𝗯𝗲𝘅.𝗯𝗼𝘁
+¿Listo para experimentar con SecuBot? Encuéntralo en Webex como: botmi1@webex.bot 
 
 
 !Esta aqui para ayudarte a comprender mejor la seguridad de Cisco!
